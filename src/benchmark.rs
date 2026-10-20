@@ -234,7 +234,10 @@ fn benchmark_one(tool: &MigrationTool, benchmark: &mut Benchmark) {
                 });
             }
             (Some(false), Some(true)) => {
-                panic!("Migration eliminated an error!");
+                panic!(
+                    "Migration eliminated an error migrating {} with {}!",
+                    benchmark.file, tool.title
+                );
             }
         },
         Some(context) => {
